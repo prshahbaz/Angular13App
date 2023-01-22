@@ -1,0 +1,47 @@
+<form [formGroup]="EmployeeForm" (ngSubmit)="OnSubmit()">    
+    <div>    
+    <label>    
+      Name    
+        <input type="text" formControlName="Name">    
+    </label>    
+  </div>    
+  <div style="margin-top: 20px">    
+    <label>    
+     Address    
+        <input type="text" formControlName="Address">    
+    </label>    
+  </div>    
+   <div>    
+      <button type="submit" [disabled]="!EmployeeForm.valid">Save</button>    
+   </div>    
+  </form>    
+  <table>    
+    <tr>    
+    <th>    
+      Name    
+    </th>    
+    <th>    
+    Address  
+    </th>    
+    <th>    
+      Update Record    
+    </th>    
+    <th>    
+        Delete Record    
+      </th>    
+  </tr>    
+  <tr *ngFor="let item of EmployeeList">    
+  <td>    
+      {{item.Name}}    
+    </td>    
+    <td>    
+        {{item.Address}}    
+      </td>    
+      <td>    
+        <button type="button" (click)="GetEmployeeById(item.Id)">Edit</button>      
+      </td>    
+      <td>    
+          <button type="button" (click)="DeleteEmployee(item.Id)">Delete</button>      
+      </td>    
+  </tr>    
+</table>    
